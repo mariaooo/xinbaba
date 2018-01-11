@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hsbc</groupId>
+    <artifactId>xinbaba</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>xinbaba_front</module>
+        <module>xinbaba_core</module>
+        <module>xinbaba_back</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <junit-version>4.12</junit-version>
+        <org.springframework-version>5.0.2.RELEASE</org.springframework-version>
+        <spring-instrument-tomcat>4.3.13.RELEASE</spring-instrument-tomcat>
+        <org.mybatis-version>3.4.5</org.mybatis-version>
+        <org.mybatis-spring-version>1.3.1</org.mybatis-spring-version>
+        <commons-logging-version>1.2</commons-logging-version>
+        <log4j-version>1.2.17</log4j-version>
+        <org.codehaus.jackson-version>1.9.13</org.codehaus.jackson-version>
+        <org.json-version>20171018</org.json-version>
+        <org.freemarker-version>2.3.23</org.freemarker-version>
+        <mysql-version>6.0.6</mysql-version>
+        <c3p0-version>0.9.1.2</c3p0-version>
+        <commons-fileupload-version>1.3.3</commons-fileupload-version>
+        <org.apache.commons-version-collections4>4.1</org.apache.commons-version-collections4>
+        <org.apache.commons-lang3-version>3.7</org.apache.commons-lang3-version>
+        <commons-codec-version>1.11</commons-codec-version>
+        <dom4j-version>1.6.1</dom4j-version>
+        <javax.servlet-api-version>2.5</javax.servlet-api-version>
+        <javax.servlet.jsp-version>2.1</javax.servlet.jsp-version>
+        <javax.servlet-jstl-version>1.2</javax.servlet-jstl-version>
+        <org.apache.taglibs-version>1.2.5</org.apache.taglibs-version>
+        <cglib-version>3.2.5</cglib-version>
+        <javax.mail-version>1.6.0</javax.mail-version>
+        <javax.activation-version>1.1.1</javax.activation-version>
+        <org.glassfish.jersey.core-version>2.26</org.glassfish.jersey.core-version>
+        <cn.itcast.page-version>1.0</cn.itcast.page-version>
+        <org.apache.solr-version>7.2.0</org.apache.solr-version>
+        <redis.clients-version>2.9.0</redis.clients-version>
+        <fastdfs_client-version>1.20</fastdfs_client-version>
+        <org.springframework.data-version>2.0.2.RELEASE</org.springframework.data-version>
+        <net.fckeditor-version>2.6</net.fckeditor-version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url>
+                    <server>admin</server>
+                    <update>true</update>
+                </configuration>
+                <version>2.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+        </dependency>
+        <!-- spring frame work -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-instrument</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-instrument-tomcat</artifactId>
+            <version>${spring-instrument-tomcat}</version>
+        </dependency>
+        <!-- jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <!-- spring mvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <!-- mybatis and mybatis-spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${org.mybatis-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${org.mybatis-spring-version}</version>
+        </dependency>
+        <!-- log -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${commons-logging-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+        <!-- convert json -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${org.codehaus.jackson-version}</version>
+        </dependency>
+        <!-- JSON is a light-weight, language independent, data interchange format. -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org.json-version}</version>
+        </dependency>
+        <!-- freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${org.freemarker-version}</version>
+        </dependency>
+        <!-- mysql driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-version}</version>
+        </dependency>
+        <!-- c3p0 -->
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0-version}</version>
+        </dependency>
+        <!-- file up load-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload-version}</version>
+        </dependency>
+        <!-- collections package-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${org.apache.commons-version-collections4}</version>
+        </dependency>
+        <!-- java lang extensions -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${org.apache.commons-lang3-version}</version>
+        </dependency>
+        <!-- provide useful encryption method -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec-version}</version>
+        </dependency>
+        <!-- dom4j to read and write xml-->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${dom4j-version}</version>
+        </dependency>
+        <!--just used to compile and test -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${javax.servlet-api-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${javax.servlet.jsp-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- jstl tab library-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${javax.servlet-jstl-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-impl</artifactId>
+            <version>${org.apache.taglibs-version}</version>
+        </dependency>
+        <!-- use for dynaproxy -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib-version}</version>
+        </dependency>
+        <!-- send email-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>${javax.mail-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>${javax.activation-version}</version>
+        </dependency>
+        <!--jerson -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${org.glassfish.jersey.core-version}</version>
+        </dependency>
+        <!--page -->
+        <dependency>
+            <groupId>cn.itcast</groupId>
+            <artifactId>page</artifactId>
+            <version>${cn.itcast.page-version}</version>
+        </dependency>
+        <!-- solrJ -->
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>${org.apache.solr-version}</version>
+        </dependency>
+        <!-- jedis Java接口 -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.clients-version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <!-- FastDFS client -->
+        <dependency>
+            <groupId>fastdfs_client</groupId>
+            <artifactId>fastdfs_client</artifactId>
+            <version>${fastdfs_client-version}</version>
+        </dependency>
+        <!-- provides easy configuration and access to Redis from Spring applications -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${org.springframework.data-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.fckeditor</groupId>
+            <artifactId>java-core</artifactId>
+            <version>${net.fckeditor-version}</version>
+        </dependency>
+    </dependencies>
+</project>
