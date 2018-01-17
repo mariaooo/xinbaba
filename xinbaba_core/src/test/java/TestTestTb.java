@@ -1,6 +1,7 @@
 import com.hsbc.core.bean.TestTb;
 import com.hsbc.core.dao.TestTbDao;
 import com.hsbc.core.junit.SpringJunitTest;
+import com.hsbc.core.service.TestTbService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,12 +15,15 @@ import java.text.SimpleDateFormat;
 public class TestTestTb extends SpringJunitTest {
 
     @Autowired
-    public TestTbDao td;
+    private TestTbDao td;
+
+    @Autowired
+    private TestTbService ts;
 
     @Test
     public void testAddTestTb() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         TestTb tt = new TestTb(null, "chris", sdf.parse("1992-12-12"));
-        td.addTestTb(tt);
+        ts.addTestTb(tt);
     }
 }

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TestTbDao {
-    public void addTestTb(TestTb tb);
+    void addTestTb(TestTb tb);
 }
 
