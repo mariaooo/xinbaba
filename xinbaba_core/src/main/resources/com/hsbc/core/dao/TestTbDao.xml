@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hsbc.core.dao.TestTbDao">
-    <insert id="addTestTb" parameterType="TestTb" >
-        INSERT INTO babasport.bbs_test_tb (id, name, brithday) VALUES (#{id}, #{name}, #{brithday});
-    </insert>
-</mapper>        
-

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bbs.core.dao.BrandDao">
+
+    <resultMap id="brand" type="Brand">
+        <result column="img_url" property="imgUrl"/>
+        <result column="web_site" property="webSite"/>
+    </resultMap>
+
+    <!-- sql part -->
+    <sql id="brandQueryCondition">
+        <if test="name != null">
+            name LIKE "%"#{name}"%"
+        </if>
+        <if test="isDisplay != null">
+            and is_display = #{isDisplay}
+        </if>
+    </sql>
+
+
+    <select id="selectBrandListByQuery" parameterType="BrandQuery" resultMap="brand">
+        SELECT * FROM babasport.bbs_brand
+        <where>
+            <include refid="brandQueryCondition"/>
+            <if test="startIndex != null">
+                limit #{startIndex}, #{pageSize}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectBrandsCount" parameterType="BrandQuery" resultType="long">
+        SELECT COUNT(id) FROM babasport.bbs_brand
+        <where>
+            <include refid="brandQueryCondition"/>
+        </where>
+    </select>
+
+    <insert id="insertBrand" parameterType="Brand">
+        INSERT INTO
+        babasport.bbs_brand(id,name,description,img_url,web_site,sort,is_display)
+        values
+        (null,#{name},#{description},#{imgUrl},#{webSite},#{sort},#{isDisplay} )
+    </insert>
+
+</mapper>        
+

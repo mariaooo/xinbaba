@@ -11,7 +11,7 @@
 
     <!-- 配置mapper扫描 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
-        <property name="basePackage" value="com.hsbc.core.dao" />
+        <property name="basePackage" value="com.bbs.core.dao" />
     </bean>
 
 </beans>

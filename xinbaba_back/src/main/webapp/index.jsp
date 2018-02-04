@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello World!!</title>
+    <title>baba sport</title>
 </head>
 <body>
-  Hello heiheihei!!
+  <jsp:forward page="./WEB-INF/back_page/index.jsp" />
 </body>
 </html>
