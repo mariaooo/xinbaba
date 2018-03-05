@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/view/login.do" />
+        <property name="successUrl" value="/view/index.do" />
+        <property name="unauthorizedUrl" value="/view/error/noInfo.do" />
+        <property name="filterChainDefinitions" >
+            <value>
+                /res/* = anon
+                /view/index.do = anon
+                /* = anon
+            </value>
+        </property>
+     </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager" >
+        <property name="realm" ref="babaRealm" />
+        <property name="cacheManager" ref="ehcache" />
+    </bean>
+
+    <bean id="babaRealm" class="com.bbs.core.realm.BaBaRealm" />
+
+</beans>

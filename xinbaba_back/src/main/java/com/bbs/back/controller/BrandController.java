@@ -2,12 +2,14 @@ package com.bbs.back.controller;
 
 import com.bbs.core.bean.Brand;
 import com.bbs.core.bean.BrandQuery;
+import com.bbs.core.bean.Constants;
 import com.bbs.core.bean.Page;
 import com.bbs.core.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by ZhanShen on 2018/2/1.
@@ -36,6 +38,7 @@ public class BrandController {
         model.addAttribute("name", name);
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("isDisplay", isDisplay);
+        model.addAttribute("url", Constants.IMG_URL);
         return "brand/list";
     }
 
@@ -44,6 +47,12 @@ public class BrandController {
         System.out.println(brand.toString());
         brandService.insertBrand(brand);
         return "redirect:/brand/list.do";
+    }
+
+    @RequestMapping(value = "/delete.do", method = {RequestMethod.POST, RequestMethod.GET})
+    public String deleteBrand(Long[] ids, Integer pageNo, String name, Byte isDisplay) {
+        brandService.deleteBrand(ids);
+        return "forward:/brand/list.do";
     }
 
 }

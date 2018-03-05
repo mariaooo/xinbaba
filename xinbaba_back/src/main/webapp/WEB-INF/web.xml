@@ -62,5 +62,15 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+    <!-- spring filter proxy -->'
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
 </web-app>
         

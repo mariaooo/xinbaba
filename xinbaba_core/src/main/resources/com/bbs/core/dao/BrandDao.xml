@@ -42,5 +42,13 @@
         (null,#{name},#{description},#{imgUrl},#{webSite},#{sort},#{isDisplay} )
     </insert>
 
+    <delete id="deleteBrand" parameterType="Long[]">
+        DELETE FROM babasport.bbs_brand
+        WHERE id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
 </mapper>        
 

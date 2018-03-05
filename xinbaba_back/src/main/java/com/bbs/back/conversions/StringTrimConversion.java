@@ -9,7 +9,7 @@ public class StringTrimConversion implements Converter<String,String> {
 
     @Override
     public String convert(String source) {
-        if (source != null && !"".equals(source)){
+        if (source != null && !"".equals(source) && !"undefined".equals(source)){
             return source;
         }
         return null;

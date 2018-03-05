@@ -17,4 +17,6 @@ public interface BrandDao {
     Long selectBrandsCount(BrandQuery brandQuery);
 
     boolean insertBrand(Brand brand);
+
+    void deleteBrand(Long[] ids);
 }

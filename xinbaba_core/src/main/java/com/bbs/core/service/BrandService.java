@@ -15,4 +15,5 @@ public interface BrandService {
     List<Brand> selectBrandListByQuery (BrandQuery brandQuery);
     Page<Brand> selectBrandPageByQuery (BrandQuery brandQuery);
     void insertBrand(Brand brand);
+    void deleteBrand(Long[] ids);
 }
