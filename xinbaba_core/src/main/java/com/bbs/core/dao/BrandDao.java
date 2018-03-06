@@ -19,4 +19,7 @@ public interface BrandDao {
     boolean insertBrand(Brand brand);
 
     void deleteBrand(Long[] ids);
+
+    void updateBrand(Brand brand);
+    Brand selectBrandById(Long id);
 }

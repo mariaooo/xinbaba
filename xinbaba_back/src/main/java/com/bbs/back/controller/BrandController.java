@@ -55,4 +55,18 @@ public class BrandController {
         return "forward:/brand/list.do";
     }
 
+    @RequestMapping(value="/update.do")
+    public String updateBrand(Brand brand) {
+        brandService.updateBrand(brand);
+        return "redirect:/brand/list.do";
+    }
+
+    @RequestMapping(value="/select.do")
+    public String selectBrand(Model model, Long id) {
+        Brand brand = brandService.selectBrandById(id);
+        model.addAttribute("brand",brand);
+        model.addAttribute("url", Constants.IMG_URL);
+        return "brand/edit";
+    }
+
 }

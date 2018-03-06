@@ -5,6 +5,7 @@
     <resultMap id="brand" type="Brand">
         <result column="img_url" property="imgUrl"/>
         <result column="web_site" property="webSite"/>
+        <result column="is_display" property="isDisplay"/>
     </resultMap>
 
     <!-- sql part -->
@@ -49,6 +50,23 @@
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectBrandById" parameterType="Long" resultMap="brand">
+        select * from babasport.bbs_brand where id = #{id}
+    </select>
+
+    <update id="updateBrand" parameterType="Brand">
+        UPDATE babasport.bbs_brand SET
+        name=#{name},
+        description=#{description},
+        img_url=#{imgUrl},
+        <if test="webSite != null">
+            web_site=#{webSite},
+        </if>
+        sort=#{sort},
+        is_display=#{isDisplay}
+        where id = #{id}
+    </update>
 
 </mapper>        
 

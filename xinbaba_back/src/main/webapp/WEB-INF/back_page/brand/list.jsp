@@ -48,7 +48,7 @@
                     </td>
                     <td align="center">${brand.id}</td>
                     <td align="center">${brand.name}</td>
-                    <td align="center"><img width="40" height="40" src="${url}/${brand.imgUrl}" /></td>
+                    <td align="center"><img width="40" height="40" src="${url}/${brand.imgUrl}"/></td>
                     <td align="center"></td>
                     <td align="center">${brand.sort}</td>
                     <td align="center">
@@ -56,9 +56,12 @@
                         <c:if test="${brand.isDisplay == 0}">否</c:if>
                     </td>
                     <td align="center">
-                        <a class="pn-opt" href="#">修改</a> | <a class="pn-opt"
-                                                               onclick="deleteOne('${brand.id}','${pageNo}','${isDisplay}','${name}')"
-                                                               href="#">删除</a>
+                        <a class="pn-opt"
+                           href="#"
+                           onclick="selectOne('${brand.id}','${pageNo}','${isDisplay}','${name}')"
+                        >修改</a> | <a class="pn-opt"
+                                     onclick="deleteOne('${brand.id}','${pageNo}','${isDisplay}','${name}')"
+                                     href="#">删除</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -139,6 +142,9 @@
     function deleteOne(id, pageNo, isDisplay, name) {
         if (confirm("are you sure delete?"))
             window.location.href = '${pageContext.request.contextPath}/brand/delete.do?name=' + name + '&pageNo=' + pageNo + '&isDisplay=' + isDisplay + '&ids=' + id;
+    }
+    function selectOne(id, pageNo, isDisplay, name) {
+        window.location.href = '${pageContext.request.contextPath}/brand/select.do?name=' + name + '&pageNo=' + pageNo + '&isDisplay=' + isDisplay + '&id=' + id;
     }
 </script>
 </body>

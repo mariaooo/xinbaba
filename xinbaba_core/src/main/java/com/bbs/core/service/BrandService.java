@@ -16,4 +16,7 @@ public interface BrandService {
     Page<Brand> selectBrandPageByQuery (BrandQuery brandQuery);
     void insertBrand(Brand brand);
     void deleteBrand(Long[] ids);
+    void updateBrand(Brand brand);
+
+    Brand selectBrandById(Long id);
 }
