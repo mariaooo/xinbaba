@@ -1,11 +1,12 @@
-package com.bbs.core.bean;
+package com.bbs.core.bean.brand;
 
 import java.io.Serializable;
 
 /**
  * Created by ZhanShen on 2018/2/1.
  */
-public class Brand implements Serializable {
+public class BrandQuery implements Serializable {
+
     private Long id;
     private String name;
     private String description;
@@ -13,10 +14,21 @@ public class Brand implements Serializable {
     private String webSite;
     private Integer sort;
     private Byte isDisplay;
+    private Integer pageNo = 1;
+    private Integer pageSize = 10;
+    private Integer startIndex;
+
+    public Integer getStartIndex() {
+        return startIndex;
+    }
+
+    public void setStartIndex(Integer startIndex) {
+        this.startIndex = startIndex;
+    }
 
     @Override
     public String toString() {
-        return "Brand{" +
+        return "BrandQuery{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
@@ -24,7 +36,27 @@ public class Brand implements Serializable {
                 ", webSite='" + webSite + '\'' +
                 ", sort=" + sort +
                 ", isDisplay=" + isDisplay +
+                ", pageNo=" + pageNo +
+                ", pageSize=" + pageSize +
                 '}';
+    }
+
+    public Integer getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(Integer pageNo) {
+        this.startIndex = (pageNo - 1) * this.pageSize;
+        this.pageNo = pageNo;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.startIndex = (this.pageNo - 1) * pageSize;
+        this.pageSize = pageSize;
     }
 
     public Long getId() {

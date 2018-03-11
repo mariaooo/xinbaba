@@ -1,7 +1,7 @@
-package com.bbs.core.dao;
+package com.bbs.core.dao.brand;
 
-import com.bbs.core.bean.Brand;
-import com.bbs.core.bean.BrandQuery;
+import com.bbs.core.bean.brand.Brand;
+import com.bbs.core.bean.brand.BrandQuery;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

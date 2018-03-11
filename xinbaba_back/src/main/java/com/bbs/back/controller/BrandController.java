@@ -1,7 +1,7 @@
 package com.bbs.back.controller;
 
-import com.bbs.core.bean.Brand;
-import com.bbs.core.bean.BrandQuery;
+import com.bbs.core.bean.brand.Brand;
+import com.bbs.core.bean.brand.BrandQuery;
 import com.bbs.core.bean.Constants;
 import com.bbs.core.bean.Page;
 import com.bbs.core.service.BrandService;

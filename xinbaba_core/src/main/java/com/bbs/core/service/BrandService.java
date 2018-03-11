@@ -1,7 +1,7 @@
 package com.bbs.core.service;
 
-import com.bbs.core.bean.Brand;
-import com.bbs.core.bean.BrandQuery;
+import com.bbs.core.bean.brand.Brand;
+import com.bbs.core.bean.brand.BrandQuery;
 import com.bbs.core.bean.Page;
 import org.springframework.transaction.annotation.Transactional;
 

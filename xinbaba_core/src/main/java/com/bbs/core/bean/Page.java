@@ -52,4 +52,15 @@ public class Page<T> implements Serializable {
     public void setList(List<T> list) {
         this.list = list;
     }
+
+    public Page() {
+    }
+
+    public Page(Integer pageNo, Integer pageTotal, Integer pageSize, Long totalSize, List<T> list) {
+        this.pageNo = pageNo;
+        this.pageTotal = pageTotal;
+        this.pageSize = pageSize;
+        this.totalSize = totalSize;
+        this.list = list;
+    }
 }
