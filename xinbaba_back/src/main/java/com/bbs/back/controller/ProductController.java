@@ -58,8 +58,8 @@ public class ProductController {
             criteria.andIsShowEqualTo(isShow);
             model.addAttribute("isShow", isShow);
         } else {
-            criteria.andIsShowEqualTo(true);
-            model.addAttribute("isShow", true);
+            criteria.andIsShowEqualTo(false);
+            model.addAttribute("isShow", false);
         }
 
         //set brand id
@@ -82,8 +82,8 @@ public class ProductController {
         return "product/list";
     }
 
-    @RequestMapping(value="/add.do")
-    public String addProduct(Model model) {
+    @RequestMapping(value="/toAdd.do")
+    public String toAddProduct(Model model) {
         // select all features
         FeatureQuery featureQuery = new FeatureQuery();
         FeatureQuery.Criteria criteria = featureQuery.createCriteria().andIsDelEqualTo(true).andIsDelEqualTo(true);
@@ -106,4 +106,12 @@ public class ProductController {
         model.addAttribute("brands", brands);
         return "product/add";
     }
+
+    @RequestMapping(value="/product/add.do")
+    public String addProduct(Product product) {
+        product.setIsShow(false);
+        productServer.insertProduct(product);
+        return "redirect:/product/list.do";
+    }
+
 }

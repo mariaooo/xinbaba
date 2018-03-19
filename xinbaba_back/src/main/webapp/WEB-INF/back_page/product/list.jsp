@@ -30,7 +30,7 @@
 <div class="box-positon">
     <div class="rpos">当前位置: 商品管理 - 列表</div>
     <form class="ropt">
-        <input class="add" type="button" value="添加" onclick="javascript:window.location.href='/product/add.do'"/>
+        <input class="add" type="button" value="添加" onclick="javascript:window.location.href='/product/toAdd.do'"/>
     </form>
     <div class="clear"></div>
 </div>
@@ -46,10 +46,10 @@
         </select>
         <select name="isShow">
             <option value="false"
-                    <c:if test="${!isShow}">selected="selected"</c:if>  >上架
+                    <c:if test="${isShow}">selected="selected"</c:if>  >上架
             </option>
             <option value="true"
-                    <c:if test="${isShow}">selected="selected"</c:if> >下架
+                    <c:if test="${!isShow}">selected="selected"</c:if> >下架
             </option>
         </select>
         <input type="submit" class="query" value="查询"/>
@@ -101,10 +101,10 @@
                         </c:if>
                     </td>
                     <td align="center">
-                        <c:if test="${!product.isShow}">
+                        <c:if test="${product.isShow}">
                             上架
                         </c:if>
-                        <c:if test="${product.isShow}">
+                        <c:if test="${!product.isShow}">
                             下架
                         </c:if>
                     </td>

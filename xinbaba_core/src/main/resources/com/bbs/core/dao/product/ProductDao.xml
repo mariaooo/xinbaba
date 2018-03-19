@@ -124,7 +124,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.bbs.core.bean.product.Product" >
+  <insert id="insert" parameterType="com.bbs.core.bean.product.Product" keyProperty="id" useGeneratedKeys="true" >
     insert into bbs_product (id, type_id, brand_id, 
       name, weight, is_new, is_hot, 
       is_commend, is_show, is_del, sales, 
@@ -140,7 +140,7 @@
       #{checkTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, #{checkUserId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.bbs.core.bean.product.Product" >
+  <insert id="insertSelective" parameterType="com.bbs.core.bean.product.Product" keyProperty="id" useGeneratedKeys="true" >
     insert into bbs_product
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
